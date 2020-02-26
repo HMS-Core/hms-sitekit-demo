@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name" translatable="false">SiteDemo</string>
+    <string name="action_settings" translatable="false">Settings</string>
+
+    <string name="content_alert_title" translatable="false">Result</string>
+
+    <!-- TextSearch -->
+    <string name="text_search_query_label" translatable="false">Query:</string>
+    <string name="text_search_query_def_value" translatable="false">SQUARE JEAN MERMOZ</string>
+    <string name="text_search_location_label" translatable="false">Location:</string>
+    <string name="text_search_location_lat_def_value" translatable="false">48.8815</string>
+    <string name="text_search_location_lng_def_value" translatable="false">2.4444</string>
+    <string name="text_search_radius_label" translatable="false">Radius:</string>
+    <string name="text_search_radius_def_value" translatable="false">50</string>
+    <string name="text_search_poitype_label" translatable="false">POIType:</string>
+    <string name="text_search_country_label" translatable="false">Country:</string>
+    <string name="text_search_language_label" translatable="false">Language:</string>
+    <string name="text_search_pageindex_label" translatable="false">PageIndex:</string>
+    <string name="text_search_pagesize_label" translatable="false">PageSize:</string>
+
+    <!-- DetailSearch -->
+    <string name="detail_search_site_id_label" translatable="false">siteId:</string>
+    <string name="detail_search_site_id_def_value" translatable="false">OThjNTkxMGRmM2EwZWNhYWU4MGRjMjA5OTBmNzJlM2Q0N2I2M2MxZDFkZDEzMmIzNDIxZTZjYzI3MTVmYTE3Yw</string>
+    <string name="detail_search_language_label" translatable="false">language:</string>
+
+    <!-- NearbySearch -->
+    <string name="nearby_search_pageindex_label" translatable="false">PageIndex:</string>
+    <string name="nearby_search_pagesize_label" translatable="false">PageSize:</string>
+
+    <!-- Common -->
+    <string name="politicalView_label" translatable="false">PoliticalView:</string>
+
+    <string name="title_activity_text_search" translatable="false">TextSearch</string>
+    <string name="title_activity_detail_search" translatable="false">DetailSearch</string>
+    <string name="title_activity_nearby_search" translatable="false">NearbySearch</string>
+    <string name="title_activity_query_suggestion" translatable="false">QuerySuggestion</string>
+</resources>
