@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".NearbySearchActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:background="#D3D3D3"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:text="Parameters"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="2dp"
+            android:gravity="center_vertical"
+            android:text="location:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/nearby_search_location_lat_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:inputType="numberSigned|numberDecimal"
+            android:hint="latitude"
+            android:text="48.8815" />
+
+        <EditText
+            android:id="@+id/nearby_search_location_lng_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:inputType="numberSigned|numberDecimal"
+            android:hint="longitude"
+            android:text="2.4444" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="2dp"
+            android:gravity="center_vertical"
+            android:text="query:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/nearby_search_query_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="2dp"
+            android:gravity="center_vertical"
+            android:text="radius:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/nearby_search_radius_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:inputType="numberSigned"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="2dp"
+            android:gravity="center_vertical"
+            android:text="poiType:"
+            android:textSize="20sp" />
+
+        <Switch
+            android:id="@+id/switch_nearby_search_poitype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom" />
+
+        <Spinner
+            android:id="@+id/spinner_nearby_search_poitype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="2dp"
+            android:gravity="center_vertical"
+            android:text="language:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/nearby_search_language_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="2dp"
+            android:gravity="center_vertical"
+            android:text="politicalView:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/nearby_search_politicalview_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="2dp"
+            android:gravity="center_vertical"
+            android:text="@string/nearby_search_pageindex_label"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/edit_text_nearby_search_pageindex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:text="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="2dp"
+            android:gravity="center_vertical"
+            android:text="@string/nearby_search_pagesize_label"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/edit_text_nearby_search_pagesize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:text="5" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/search_nearby_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:text="Search"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:background="#D3D3D3"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:text="Result"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/nearby_search_result_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/nearby_search_result_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textIsSelectable="true"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textSize="14sp" />
+
+</LinearLayout>
