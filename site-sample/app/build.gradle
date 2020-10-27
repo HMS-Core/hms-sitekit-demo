@@ -47,6 +47,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'com.huawei.hms:site:5.0.2.300'
+    implementation 'com.huawei.hms:site:5.0.3.301'
     implementation("com.squareup.okhttp3:okhttp:3.14.4")
 }
