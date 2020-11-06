@@ -45,7 +45,7 @@
 更多开发详情，请参见如下链接：
 
 - [开发指南](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/android-sdk-introduction-0000001050158571-V5)
-- [接口参考](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/api-overview-0000001050153970-V5)
+- [接口参考](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/api-overview-0000001050153970-V5)
 
 环境要求
 -------
