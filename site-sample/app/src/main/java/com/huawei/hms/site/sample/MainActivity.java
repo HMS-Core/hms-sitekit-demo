@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.detail_search_button).setOnClickListener(this);
         findViewById(R.id.nearby_search_button).setOnClickListener(this);
         findViewById(R.id.query_suggestion_button).setOnClickListener(this);
+        findViewById(R.id.query_auto_complete_button).setOnClickListener(this);
     }
 
     @Override
@@ -55,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Jump to keyword search activity.
             case R.id.query_suggestion_button:
                 startActivity(new Intent(this, QuerySuggestionActivity.class));
+                break;
+            // Jump to auto complete activity.
+            case R.id.query_auto_complete_button:
+                startActivity(new Intent(this, QueryAutoCompleteActivity.class));
                 break;
             default:
                 break;

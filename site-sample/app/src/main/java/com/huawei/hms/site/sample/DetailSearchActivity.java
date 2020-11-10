@@ -29,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.huawei.hms.site.api.SearchResultListener;
 import com.huawei.hms.site.api.SearchService;
 import com.huawei.hms.site.api.SearchServiceFactory;
@@ -118,6 +119,7 @@ public class DetailSearchActivity extends AppCompatActivity implements View.OnCl
         if (!TextUtils.isEmpty(politicalView)) {
             request.setPoliticalView(politicalView);
         }
+        request.setChildren(((Switch) findViewById(R.id.switch_detail_search_children)).isChecked());
 
         // Create a search result listener.
         SearchResultListener<DetailSearchResponse> resultListener = new SearchResultListener<DetailSearchResponse>() {
@@ -136,14 +138,20 @@ public class DetailSearchActivity extends AppCompatActivity implements View.OnCl
                 StringBuilder response = new StringBuilder("\n");
                 response.append("success\n");
                 response.append(String.format(
-                    "siteId: '%s', Name: %s, FormatAddress: %s, Country: %s, CountryCode: %s, Location: %s, PoiTypes: %s, Viewport: %s \n\n",
+                    "siteId: '%s', Name: %s, FormatAddress: %s, Country: %s, CountryCode: %s, Location: %s, PoiTypes: %s, Viewport: %s, ",
                     site.getSiteId(), site.getName(), site.getFormatAddress(),
                     (addressDetail == null ? "" : addressDetail.getCountry()),
                     (addressDetail == null ? "" : addressDetail.getCountryCode()),
                     (location == null ? "" : (location.getLat() + "," + location.getLng())),
                     (poi == null ? "" : Arrays.toString(poi.getPoiTypes())),
-                    (viewport == null ? "" : viewport.getNortheast() + "," + viewport.getSouthwest())));
+                    (viewport == null ? "" : "northeast{lat=" + viewport.getNortheast().getLat() + ", lng=" + viewport.getNortheast().getLng() + "},"
+                            + "southwest{lat=" + viewport.getSouthwest().getLat() + ", lng=" + viewport.getSouthwest().getLng() + "}")));
 
+                if ((poi != null)){
+                    Gson g = new Gson();
+                    String jsonString = g.toJson(poi.getChildrenNodes());
+                    response.append(String.format("children: %s \n\n", jsonString));
+                }
                 Switch displaySwitch = findViewById(R.id.detail_search_photo_switch);
                 String[] photoUrls = poi != null ? poi.getPhotoUrls() : null;
                 String photoUrl = photoUrls != null && photoUrls.length > 0 ? photoUrls[0] : "";

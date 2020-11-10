@@ -40,6 +40,16 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
+
+    android.applicationVariants.all {
+        variant ->
+            def versionName = project.findProperty('app_versionName')
+            def fileName = "SiteKitSampleCode-" + versionName + ".apk"
+            variant.outputs.all {
+                outputFileName = fileName
+            }
+
+    }
 }
 
 dependencies {

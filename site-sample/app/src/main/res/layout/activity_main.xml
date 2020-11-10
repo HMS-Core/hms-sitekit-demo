@@ -46,4 +46,13 @@
         android:textAllCaps="false"
         android:textSize="16sp" />
 
+    <Button
+        android:id="@+id/query_auto_complete_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="QueryAutoComplete"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
 </LinearLayout>

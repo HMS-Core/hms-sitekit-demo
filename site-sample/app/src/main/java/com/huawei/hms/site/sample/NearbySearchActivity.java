@@ -101,7 +101,8 @@ public class NearbySearchActivity extends AppCompatActivity implements View.OnCl
                             (addressDetail == null ? "" : addressDetail.getCountryCode()),
                             (location == null ? "" : (location.getLat() + "," + location.getLng())),
                             (poi == null ? "" : Arrays.toString(poi.getPoiTypes())),
-                            (viewport == null ? "" : viewport.getNortheast() + "," + viewport.getSouthwest())));
+                            (viewport == null ? "" : "northeast{lat=" + viewport.getNortheast().getLat() + ", lng=" + viewport.getNortheast().getLng() + "},"
+                                    + "southwest{lat=" + viewport.getSouthwest().getLat() + ", lng=" + viewport.getSouthwest().getLng() + "}")));
                     }
                 } else {
                     stringBuilder.append("0 results");

@@ -29,9 +29,11 @@
 
     <!-- Common -->
     <string name="politicalView_label" translatable="false">PoliticalView:</string>
+    <string name="children_label" translatable="false">children:</string>
 
     <string name="title_activity_text_search" translatable="false">TextSearch</string>
     <string name="title_activity_detail_search" translatable="false">DetailSearch</string>
     <string name="title_activity_nearby_search" translatable="false">NearbySearch</string>
     <string name="title_activity_query_suggestion" translatable="false">QuerySuggestion</string>
+    <string name="title_activity_query_auto_complete" translatable="false">QueryAutoComplete</string>
 </resources>

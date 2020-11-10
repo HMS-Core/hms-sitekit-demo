@@ -25,6 +25,7 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.huawei.hms.site.api.SearchResultListener;
 import com.huawei.hms.site.api.SearchService;
 import com.huawei.hms.site.api.SearchServiceFactory;
@@ -177,6 +178,7 @@ public class TextSearchActivity extends AppCompatActivity {
             return;
         }
         request.setPageSize(pageSizeInt);
+        request.setChildren(((Switch) findViewById(R.id.switch_text_search_children)).isChecked());
         // Create a search result listener.
         SearchResultListener<TextSearchResponse> resultListener = new SearchResultListener<TextSearchResponse>() {
             // Return search results upon a successful search.
@@ -202,13 +204,19 @@ public class TextSearchActivity extends AppCompatActivity {
                     poi = site.getPoi();
                     viewport = site.getViewport();
                     response.append(String.format(
-                            "[%s] siteId: '%s', name: %s, formatAddress: %s, country: %s, countryCode: %s, location: %s, poiTypes: %s, viewport is %s \n\n",
+                            "[%s] siteId: '%s', name: %s, formatAddress: %s, country: %s, countryCode: %s, location: %s, poiTypes: %s, viewport: %s, ",
                             "" + (count++), site.getSiteId(), site.getName(), site.getFormatAddress(),
                             (addressDetail == null ? "" : addressDetail.getCountry()),
                             (addressDetail == null ? "" : addressDetail.getCountryCode()),
                             (location == null ? "" : (location.getLat() + "," + location.getLng())),
                             (poi == null ? "" : Arrays.toString(poi.getPoiTypes())),
-                            (viewport == null ? "" : viewport.getNortheast() + "," + viewport.getSouthwest())));
+                            (viewport == null ? "" : "northeast{lat=" + viewport.getNortheast().getLat() + ", lng=" + viewport.getNortheast().getLng() + "},"
+                                    + "southwest{lat=" + viewport.getSouthwest().getLat() + ", lng=" + viewport.getSouthwest().getLng() + "}")));
+                    if ((poi != null)){
+                        Gson g = new Gson();
+                        String jsonString = g.toJson(poi.getChildrenNodes());
+                        response.append(String.format("childrenNode: %s \n\n", jsonString));
+                    }
                 }
                 resultTextView.setText(response.toString());
                 Log.d(TAG, "onTextSearchResult: " + response.toString());

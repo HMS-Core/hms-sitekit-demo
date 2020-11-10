@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.huawei.hms.site.api.SearchResultListener;
 import com.huawei.hms.site.api.SearchService;
 import com.huawei.hms.site.api.SearchServiceFactory;
@@ -92,13 +93,19 @@ public class QuerySuggestionActivity extends AppCompatActivity implements View.O
                         Poi poi = site.getPoi();
                         CoordinateBounds viewport = site.getViewport();
                         stringBuilder.append(String.format(
-                            "[%s] siteId: '%s', name: %s, formatAddress: %s, country: %s, countryCode: %s, location: %s, distance: %s, poiTypes: %s, viewport is %s \n\n",
+                            "[%s] siteId: '%s', name: %s, formatAddress: %s, country: %s, countryCode: %s, location: %s, distance: %s, poiTypes: %s, viewport: %s, ",
                             "" + (count++), site.getSiteId(), site.getName(), site.getFormatAddress(),
                             (addressDetail == null ? "" : addressDetail.getCountry()),
                             (addressDetail == null ? "" : addressDetail.getCountryCode()),
                             (location == null ? "" : (location.getLat() + "," + location.getLng())), site.getDistance(),
                             (poi == null ? "" : Arrays.toString(poi.getPoiTypes())),
-                            (viewport == null ? "" : viewport.getNortheast() + "," + viewport.getSouthwest())));
+                            (viewport == null ? "" : "northeast{lat=" + viewport.getNortheast().getLat() + ", lng=" + viewport.getNortheast().getLng() + "},"
+                                    + "southwest{lat=" + viewport.getSouthwest().getLat() + ", lng=" + viewport.getSouthwest().getLng() + "}")));
+                        if ((poi != null)) {
+                            Gson g = new Gson();
+                            String jsonString = g.toJson(poi.getChildrenNodes());
+                            stringBuilder.append(String.format("childrenNode: %s \n\n", jsonString));
+                        }
                     }
                 } else {
                     stringBuilder.append("0 results");
@@ -182,6 +189,7 @@ public class QuerySuggestionActivity extends AppCompatActivity implements View.O
 
         List<LocationType> locationTypes = getLocationTypes();
         request.setPoiTypes(locationTypes);
+        request.setChildren(((Switch) findViewById(R.id.switch_query_suggestion_children)).isChecked());
 
         // Call the place search suggestion API.
         searchService.querySuggestion(request, searchResultListener);
