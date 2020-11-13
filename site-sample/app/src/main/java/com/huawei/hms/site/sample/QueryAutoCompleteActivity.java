@@ -96,6 +96,31 @@ public class QueryAutoCompleteActivity extends AppCompatActivity implements View
             public void onSearchResult(QueryAutocompleteResponse results) {
                 StringBuilder stringBuilder = new StringBuilder();
                 if (results != null) {
+                    AutoCompletePrediction[] predictions = results.getPredictions();
+                    if (predictions != null && predictions.length > 0) {
+                        stringBuilder.append("AutoCompletePrediction[ ]:\n");
+                        int count = 1;
+                        for (AutoCompletePrediction mPrediction : predictions) {
+                            stringBuilder.append(String.format("[%s] Prediction,description = %s ,", "" + (count++), mPrediction.getDescription()));
+
+                            Word[] matchedKeywords = mPrediction.getMatchedKeywords();
+                            for (Word matchedKeyword : matchedKeywords) {
+                                stringBuilder.append("matchedKeywords: " + matchedKeyword.toString());
+                            }
+
+                            Word[] matchedWords = mPrediction.getMatchedWords();
+                            for (Word matchedWord : matchedWords) {
+                                stringBuilder.append(",matchedWords: " + matchedWord.toString());
+                            }
+
+                            stringBuilder.append("\n");
+                        }
+                    } else {
+                        stringBuilder.append("Predictions 0 results");
+                    }
+
+                    stringBuilder.append("\n\nSite[ ]:\n");
+
                     Site[] sites = results.getSites();
                     if (sites != null && sites.length > 0) {
                         int count = 1;
@@ -125,28 +150,6 @@ public class QueryAutoCompleteActivity extends AppCompatActivity implements View
                         }
                     } else {
                         stringBuilder.append("sites 0 results\n");
-                    }
-
-                    AutoCompletePrediction[] predictions = results.getPredictions();
-                    if (predictions != null && predictions.length > 0) {
-                        int count = 1;
-                        for (AutoCompletePrediction mPrediction : predictions) {
-                            stringBuilder.append(String.format("[%s] Prediction,description = %s ,", "" + (count++), mPrediction.getDescription()));
-
-                            Word[] matchedKeywords = mPrediction.getMatchedKeywords();
-                            for (Word matchedKeyword : matchedKeywords) {
-                                stringBuilder.append("matchedKeywords: " + matchedKeyword.toString());
-                            }
-
-                            Word[] matchedWords = mPrediction.getMatchedWords();
-                            for (Word matchedWord : matchedWords) {
-                                stringBuilder.append(",matchedWords: " + matchedWord.toString());
-                            }
-
-                            stringBuilder.append("\n");
-                        }
-                    } else {
-                        stringBuilder.append("Predictions 0 results");
                     }
                 }
                 resultText.setText(stringBuilder);
