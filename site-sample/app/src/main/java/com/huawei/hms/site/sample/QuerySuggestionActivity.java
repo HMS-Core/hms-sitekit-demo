@@ -141,8 +141,6 @@ public class QuerySuggestionActivity extends AppCompatActivity implements View.O
         String locationLongitude =
             ((TextView) findViewById(R.id.query_suggestion_location_lng_input)).getText().toString();
         String countryCode = ((TextView) findViewById(R.id.query_suggestion_country_code_input)).getText().toString();
-        String politicalView =
-            ((TextView) findViewById(R.id.query_suggestion_politicalview_input)).getText().toString();
         String northeastLatText =
             ((TextView) findViewById(R.id.query_suggestion_bounds_northeast_lat_input)).getText().toString();
         String northeastLngText =
@@ -160,9 +158,6 @@ public class QuerySuggestionActivity extends AppCompatActivity implements View.O
         }
         if (!TextUtils.isEmpty(countryCode)) {
             request.setCountryCode(countryCode);
-        }
-        if (!TextUtils.isEmpty(politicalView)) {
-            request.setPoliticalView(politicalView);
         }
         Integer radiusValue;
         if ((radiusValue = Utils.parseInt(radius)) != null) {
@@ -190,6 +185,7 @@ public class QuerySuggestionActivity extends AppCompatActivity implements View.O
         List<LocationType> locationTypes = getLocationTypes();
         request.setPoiTypes(locationTypes);
         request.setChildren(((Switch) findViewById(R.id.switch_query_suggestion_children)).isChecked());
+        request.setStrictBounds(((Switch) findViewById(R.id.switch_query_suggestion_strict_bounds)).isChecked());
 
         // Call the place search suggestion API.
         searchService.querySuggestion(request, searchResultListener);

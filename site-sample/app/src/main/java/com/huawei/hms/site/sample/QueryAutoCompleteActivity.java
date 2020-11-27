@@ -63,8 +63,6 @@ public class QueryAutoCompleteActivity extends AppCompatActivity implements View
                 ((TextView) findViewById(R.id.query_suggestion_location_lat_input)).getText().toString();
         String locationLongitude =
                 ((TextView) findViewById(R.id.query_suggestion_location_lng_input)).getText().toString();
-        String politicalView =
-                ((TextView) findViewById(R.id.query_suggestion_politicalview_input)).getText().toString();
 
         if (!TextUtils.isEmpty(language)) {
             request.setLanguage(language);
@@ -72,10 +70,6 @@ public class QueryAutoCompleteActivity extends AppCompatActivity implements View
 
         if (!TextUtils.isEmpty(query)) {
             request.setQuery(query);
-        }
-
-        if (!TextUtils.isEmpty(politicalView)) {
-            request.setPoliticalView(politicalView);
         }
 
         Integer radiusValue;

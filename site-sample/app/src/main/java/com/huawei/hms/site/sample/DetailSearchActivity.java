@@ -63,8 +63,6 @@ public class DetailSearchActivity extends AppCompatActivity implements View.OnCl
 
     private EditText languageInput;
 
-    private EditText politicalViewInput;
-
     private TextView resultTextView;
 
     private ImageView sitePhotoView;
@@ -84,7 +82,6 @@ public class DetailSearchActivity extends AppCompatActivity implements View.OnCl
 
         siteIdInput = findViewById(R.id.edit_text_detail_search_site_id);
         languageInput = findViewById(R.id.edit_text_detail_search_language);
-        politicalViewInput = findViewById(R.id.edit_text_detail_search_politicalview);
 
         findViewById(R.id.button_detail_search).setOnClickListener(this);
         resultTextView = findViewById(R.id.response_detail_search);
@@ -113,11 +110,6 @@ public class DetailSearchActivity extends AppCompatActivity implements View.OnCl
         String language = languageInput.getText().toString();
         if (!TextUtils.isEmpty(language)) {
             request.setLanguage(language);
-        }
-
-        String politicalView = politicalViewInput.getText().toString();
-        if (!TextUtils.isEmpty(politicalView)) {
-            request.setPoliticalView(politicalView);
         }
         request.setChildren(((Switch) findViewById(R.id.switch_detail_search_children)).isChecked());
 

@@ -64,8 +64,6 @@ public class TextSearchActivity extends AppCompatActivity {
 
     private EditText languageInput;
 
-    private EditText politicalViewInput;
-
     private EditText pageIndexInput;
 
     private EditText pageSizeInput;
@@ -97,7 +95,6 @@ public class TextSearchActivity extends AppCompatActivity {
         });
         countryInput = findViewById(R.id.edit_text_text_search_country);
         languageInput = findViewById(R.id.edit_text_text_search_language);
-        politicalViewInput = findViewById(R.id.edit_text_text_search_politicalview);
         pageIndexInput = findViewById(R.id.edit_text_text_search_pageindex);
         pageSizeInput = findViewById(R.id.edit_text_text_search_pagesize);
         resultTextView = findViewById(R.id.response_text_search);
@@ -156,11 +153,6 @@ public class TextSearchActivity extends AppCompatActivity {
         String language = languageInput.getText().toString();
         if (!TextUtils.isEmpty(language)) {
             request.setLanguage(language);
-        }
-
-        String politicalView = politicalViewInput.getText().toString();
-        if (!TextUtils.isEmpty(politicalView)) {
-            request.setPoliticalView(politicalView);
         }
 
         String pageIndex = pageIndexInput.getText().toString();

@@ -164,11 +164,6 @@ public class NearbySearchActivity extends AppCompatActivity implements View.OnCl
             request.setLanguage(language);
         }
 
-        String politicalView = ((TextView) findViewById(R.id.nearby_search_politicalview_input)).getText().toString();
-        if (!TextUtils.isEmpty(politicalView)) {
-            request.setPoliticalView(politicalView);
-        }
-
         String pageIndex = pageIndexInput.getText().toString();
         if (!TextUtils.isEmpty(pageIndex)) {
             Integer pageIndexInt;
@@ -188,6 +183,8 @@ public class NearbySearchActivity extends AppCompatActivity implements View.OnCl
             }
             request.setPageSize(pageSizeInt);
         }
+
+        request.setStrictBounds(((Switch) findViewById(R.id.switch_nearby_search_strict_bounds)).isChecked());
 
         // Call the nearby place search API.
         searchService.nearbySearch(request, searchResultListener);

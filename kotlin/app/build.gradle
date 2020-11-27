@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.huawei.agconnect'
 
 android {
@@ -59,4 +60,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.huawei.hms:site:5.0.5.301'
     implementation("com.squareup.okhttp3:okhttp:3.14.4")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
