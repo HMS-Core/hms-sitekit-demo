@@ -152,7 +152,6 @@ class QuerySuggestionActivity : AppCompatActivity(), View.OnClickListener {
         val locationTypes = locationTypes
         request.setPoiTypes(locationTypes)
         request.isChildren = findViewById<Switch>(R.id.switch_query_suggestion_children).isChecked
-        request.strictBounds = findViewById<Switch>(R.id.switch_query_suggestion_strict_bounds).isChecked
 
         // Call the place search suggestion API.
         searchService?.querySuggestion(request, searchResultListener)

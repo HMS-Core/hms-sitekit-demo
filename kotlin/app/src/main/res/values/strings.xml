@@ -29,7 +29,6 @@
 
     <!-- Common -->
     <string name="children_label" translatable="false">children:</string>
-    <string name="strictBounds_label" translatable="false">strictBounds:</string>
 
     <string name="title_activity_text_search" translatable="false">TextSearch</string>
     <string name="title_activity_detail_search" translatable="false">DetailSearch</string>

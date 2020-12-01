@@ -185,7 +185,6 @@ public class QuerySuggestionActivity extends AppCompatActivity implements View.O
         List<LocationType> locationTypes = getLocationTypes();
         request.setPoiTypes(locationTypes);
         request.setChildren(((Switch) findViewById(R.id.switch_query_suggestion_children)).isChecked());
-        request.setStrictBounds(((Switch) findViewById(R.id.switch_query_suggestion_strict_bounds)).isChecked());
 
         // Call the place search suggestion API.
         searchService.querySuggestion(request, searchResultListener);

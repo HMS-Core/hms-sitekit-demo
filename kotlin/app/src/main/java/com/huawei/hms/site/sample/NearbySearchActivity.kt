@@ -146,8 +146,6 @@ class NearbySearchActivity : AppCompatActivity(), View.OnClickListener {
         }
         request.setPageSize(pageSizeInt)
 
-        request.setStrictBounds(findViewById<Switch>(R.id.switch_nearby_search_strict_bounds).isChecked)
-
         // Call the nearby place search API.
         searchService?.nearbySearch(request, searchResultListener)
     }
