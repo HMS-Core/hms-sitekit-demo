@@ -289,6 +289,27 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="2dp"
+                android:text="@string/strictBounds_label"
+                android:textSize="20sp" />
+
+            <Switch
+                android:id="@+id/switch_query_suggestion_strict_bounds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
         <Button
             android:id="@+id/search_query_suggestion_button"
             android:layout_width="match_parent"
