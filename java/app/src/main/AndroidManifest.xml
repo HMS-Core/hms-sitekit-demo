@@ -33,6 +33,12 @@
             android:name=".QueryAutoCompleteActivity"
             android:label="@string/title_activity_query_auto_complete" />
         <activity
+            android:name=".SearchIntentActivity"
+            android:label="@string/title_activity_search_intent" />
+        <activity
+            android:name=".SearchFragmentActivity"
+            android:label="@string/title_activity_search_fragment" />
+        <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>

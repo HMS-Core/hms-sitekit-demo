@@ -55,4 +55,12 @@
         android:textAllCaps="false"
         android:textSize="16sp" />
 
+    <Button
+        android:id="@+id/search_widget_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Widget"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
 </LinearLayout>

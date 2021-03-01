@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<View>(R.id.nearby_search_button).setOnClickListener(this)
         findViewById<View>(R.id.query_suggestion_button).setOnClickListener(this)
         findViewById<View>(R.id.query_auto_complete_button).setOnClickListener(this)
+        findViewById<View>(R.id.search_widget_button).setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -47,6 +48,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.query_suggestion_button -> startActivity(Intent(this, QuerySuggestionActivity::class.java))
             // Jump to auto complete activity.
             R.id.query_auto_complete_button -> startActivity(Intent(this, QueryAutoCompleteActivity::class.java))
+            // Jump to auto search intent activity.
+            R.id.search_widget_button -> startActivity(Intent(this, SearchIntentActivity::class.java))
             else -> {
             }
         }

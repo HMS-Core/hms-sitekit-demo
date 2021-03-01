@@ -44,7 +44,7 @@ class TextSearchActivity : AppCompatActivity() {
     private lateinit var lngInput: EditText
     private lateinit var radiusInput: EditText
     private lateinit var poiTypeSpinner: Spinner
-    private lateinit var countryInput: EditText
+    private lateinit var countryCodeInput: EditText
     private lateinit var languageInput: EditText
     private lateinit var pageIndexInput: EditText
     private lateinit var pageSizeInput: EditText
@@ -67,7 +67,7 @@ class TextSearchActivity : AppCompatActivity() {
         poiTypeSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listOf(*LocationType.values()))
         val usePOITypeSwitch = findViewById<Switch>(R.id.switch_text_search_poitype)
         usePOITypeSwitch.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean -> poiTypeSpinner.isEnabled = isChecked }
-        countryInput = findViewById(R.id.edit_text_text_search_country)
+        countryCodeInput = findViewById(R.id.edit_text_text_search_country_code)
         languageInput = findViewById(R.id.edit_text_text_search_language)
         pageIndexInput = findViewById(R.id.edit_text_text_search_pageindex)
         pageSizeInput = findViewById(R.id.edit_text_text_search_pagesize)
@@ -113,7 +113,7 @@ class TextSearchActivity : AppCompatActivity() {
         if (poiType != null) {
             request.setPoiType(poiType)
         }
-        val countryCode = countryInput.text.toString()
+        val countryCode = countryCodeInput.text.toString()
         if (!TextUtils.isEmpty(countryCode)) {
             request.setCountryCode(countryCode)
         }

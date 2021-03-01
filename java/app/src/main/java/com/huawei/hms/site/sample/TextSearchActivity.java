@@ -60,7 +60,7 @@ public class TextSearchActivity extends AppCompatActivity {
 
     private Spinner poiTypeSpinner;
 
-    private EditText countryInput;
+    private EditText countryCodeInput;
 
     private EditText languageInput;
 
@@ -93,7 +93,7 @@ public class TextSearchActivity extends AppCompatActivity {
         usePOITypeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             poiTypeSpinner.setEnabled(isChecked);
         });
-        countryInput = findViewById(R.id.edit_text_text_search_country);
+        countryCodeInput = findViewById(R.id.edit_text_text_search_country_code);
         languageInput = findViewById(R.id.edit_text_text_search_language);
         pageIndexInput = findViewById(R.id.edit_text_text_search_pageindex);
         pageSizeInput = findViewById(R.id.edit_text_text_search_pagesize);
@@ -145,7 +145,7 @@ public class TextSearchActivity extends AppCompatActivity {
             request.setPoiType(poiType);
         }
 
-        String countryCode = countryInput.getText().toString();
+        String countryCode = countryCodeInput.getText().toString();
         if (!TextUtils.isEmpty(countryCode)) {
             request.setCountryCode(countryCode);
         }

@@ -13,7 +13,7 @@
     <string name="text_search_radius_label" translatable="false">Radius:</string>
     <string name="text_search_radius_def_value" translatable="false">50</string>
     <string name="text_search_poitype_label" translatable="false">POIType:</string>
-    <string name="text_search_country_label" translatable="false">Country:</string>
+    <string name="text_search_country_label" translatable="false">CountryCode:</string>
     <string name="text_search_language_label" translatable="false">Language:</string>
     <string name="text_search_pageindex_label" translatable="false">PageIndex:</string>
     <string name="text_search_pagesize_label" translatable="false">PageSize:</string>
@@ -36,4 +36,13 @@
     <string name="title_activity_nearby_search" translatable="false">NearbySearch</string>
     <string name="title_activity_query_suggestion" translatable="false">QuerySuggestion</string>
     <string name="title_activity_query_auto_complete" translatable="false">QueryAutoComplete</string>
+    <string name="title_activity_search_intent" translatable="false">SearchIntent</string>
+    <string name="title_activity_search_fragment" translatable="false">SearchFragment</string>
+
+    <!-- Site widget -->
+    <string name="open_search_activity" translatable="false">Open SearchActivity</string>
+    <string name="open_search_fragment" translatable="false">Open SearchFragment</string>
+    <string name="search_fragment_label" translatable="false">Open Search Fragment:</string>
+    <string name="SearchFragmentParameter" translatable="false">Parameter</string>
+    <string name="SearchFragmentResult" translatable="false">Result</string>
 </resources>
