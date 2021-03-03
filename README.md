@@ -24,7 +24,8 @@ HUAWEI Site Kit provides the following core capabilities you need to quickly bui
 - Nearby place search: Searches for nearby places based on the current location of the user's device.
 - Place details: Searches for details about a place.
 - Search suggestion: Returns a list of place suggestions.
-
+- Widget:A search component of the built-in place search suggestion feature.
+- Autocomplete:Return an autocomplete place and a list of suggested places.
 
 Getting Started
 ---------------
