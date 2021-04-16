@@ -49,7 +49,7 @@
                 android:layout_weight="1"
                 android:imeOptions="actionNext"
                 android:inputType="text"
-                android:text="Museu" />
+                android:text="Music" />
         </LinearLayout>
 
         <LinearLayout
