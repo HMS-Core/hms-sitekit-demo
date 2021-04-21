@@ -27,6 +27,8 @@ HUAWEI Site Kit provides the following core capabilities you need to quickly bui
 - Widget:A search component of the built-in place search suggestion feature.
 - Autocomplete:Return an autocomplete place and a list of suggested places.
 
+You also can use HMS Toolkit to quickly integrate the kit and run the demo project, as well as debug the app using a remote device for free. For details, please visit https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/getting-started-0000001077381096
+
 Getting Started
 ---------------
 We provide an sample to demonstrate the use of Site SDK for Android. 
