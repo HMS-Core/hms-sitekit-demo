@@ -27,6 +27,8 @@
 - Widget：内置地点搜索建议功能的搜索组件。
 - 自动补全：根据输入的关键字返回预测的输入关键字和地点查询建议。
 
+该示例也可以通过HMS Toolkit快速启动运行，且支持各Kit一站式集成，并提供远程真机免费调测等功能。了解更多信息，请参考HMS Toolkit官方链接：https://developer.huawei.com/consumer/cn/doc/development/Tools-Guides/getting-started-0000001077381096
+
 开发准备
 ---------------
 我们提供一个示例展示如何使用安卓版华为位置服务SDK。
