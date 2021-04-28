@@ -38,6 +38,7 @@ class QuerySuggestionActivity : AppCompatActivity(), View.OnClickListener {
     // Declare a SearchService object.
     private var searchService: SearchService? = null
     private var locationTypeSpinner: CheckboxSpinner? = null
+    private var countryListSpinner: CheckboxCountriesSpinner? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +56,18 @@ class QuerySuggestionActivity : AppCompatActivity(), View.OnClickListener {
         val poiTypesInput = findViewById<TextView>(R.id.query_suggestion_poi_type_input)
         poiTypesInput.isEnabled = false
         locationTypeSpinner = CheckboxSpinner(findViewById(R.id.switch_query_suggestion_poitype), poiTypesInput, poiTypes)
+
+        val countryList: MutableList<String> = ArrayList()
+        countryList.add("en")
+        countryList.add("fr")
+        countryList.add("cn")
+        countryList.add("de")
+        countryList.add("ko")
+
+        val countryListInput = findViewById<TextView>(R.id.query_suggestion_country_list_input)
+        countryListInput.isEnabled = false
+
+        countryListSpinner = CheckboxCountriesSpinner(findViewById(R.id.switch_query_suggestion_countrylist), countryListInput, countryList)
     }
 
     // Create a search result listener.
@@ -130,6 +143,10 @@ class QuerySuggestionActivity : AppCompatActivity(), View.OnClickListener {
         if (!TextUtils.isEmpty(countryCode)) {
             request.setCountryCode(countryCode)
         }
+        val countryList: List<String> = getCountryList()
+        if (countryList.isNotEmpty()) {
+            request.setCountries(countryList)
+        }
         val radiusValue: Int? = parseInt(radius)
         if (radiusValue != null) {
             request.setRadius(radiusValue)
@@ -164,6 +181,14 @@ class QuerySuggestionActivity : AppCompatActivity(), View.OnClickListener {
         } else {
             ArrayList()
         }
+
+    private fun getCountryList(): List<String> {
+        return if (findViewById<Switch>(R.id.switch_query_suggestion_countrylist).isChecked) {
+            countryListSpinner!!.selectedCountryList
+        } else {
+            ArrayList()
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()

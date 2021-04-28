@@ -49,6 +49,8 @@ public class SearchIntentActivity extends AppCompatActivity {
 
     private CheckboxSpinner locationTypeSpinner;
 
+    private CheckboxCountriesSpinner countryListSpinner;
+
     private Switch childrenSwitch;
 
     private Switch strictBoundsSwitch;
@@ -74,6 +76,19 @@ public class SearchIntentActivity extends AppCompatActivity {
 
         locationTypeSpinner =
             new CheckboxSpinner(findViewById(R.id.switch_query_suggestion_poitype), poiTypesInput, poiTypes);
+
+        List<String> countryList = new ArrayList<>();
+        countryList.add("en");
+        countryList.add("fr");
+        countryList.add("cn");
+        countryList.add("de");
+        countryList.add("ko");
+
+        TextView countryListInput = findViewById(R.id.search_fragment_country_list_input);
+        countryListInput.setEnabled(false);
+
+        countryListSpinner =
+                new CheckboxCountriesSpinner(findViewById(R.id.switch_search_fragment_countrylist), countryListInput, countryList);
     }
 
     public void openSearchActivity(View view) {
@@ -104,6 +119,10 @@ public class SearchIntentActivity extends AppCompatActivity {
         }
         if (!TextUtils.isEmpty(countryCode)) {
             searchFilter.setCountryCode(countryCode);
+        }
+        List<String> countryList = getCountryList();
+        if (countryList.size() > 0) {
+            searchFilter.setCountries(countryList);
         }
         Integer radiusValue;
         if ((radiusValue = Utils.parseInt(radius)) != null) {
@@ -170,6 +189,10 @@ public class SearchIntentActivity extends AppCompatActivity {
         }
         if (!TextUtils.isEmpty(countryCode)) {
             intent.putExtra("countryCode", countryCode);
+        }
+        List<String> countryList = getCountryList();
+        if (countryList.size() > 0) {
+            intent.putExtra("countries", (Serializable) countryList);
         }
 
         if (!TextUtils.isEmpty(radius)) {
@@ -247,6 +270,14 @@ public class SearchIntentActivity extends AppCompatActivity {
             return locationTypeSpinner.getSelectedLocationTypes();
         } else {
             return null;
+        }
+    }
+
+    private List<String> getCountryList() {
+        if (((Switch) findViewById(R.id.switch_search_fragment_countrylist)).isChecked()) {
+            return countryListSpinner.getSelectedCountryList();
+        } else {
+            return new ArrayList<>();
         }
     }
 }

@@ -39,6 +39,7 @@ import com.huawei.hms.site.api.model.Site;
 import com.huawei.hms.site.api.model.TextSearchRequest;
 import com.huawei.hms.site.api.model.TextSearchResponse;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -61,6 +62,8 @@ public class TextSearchActivity extends AppCompatActivity {
     private Spinner poiTypeSpinner;
 
     private EditText countryCodeInput;
+
+    private CheckboxCountriesSpinner countryListSpinner;
 
     private EditText languageInput;
 
@@ -104,6 +107,19 @@ public class TextSearchActivity extends AppCompatActivity {
         });
 
         poiTypeSpinner.setEnabled(false);
+
+        List<String> countryList = new ArrayList<>();
+        countryList.add("en");
+        countryList.add("fr");
+        countryList.add("cn");
+        countryList.add("de");
+        countryList.add("ko");
+
+        TextView countryListInput = findViewById(R.id.text_search_country_list_input);
+        countryListInput.setEnabled(false);
+
+        countryListSpinner =
+                new CheckboxCountriesSpinner(findViewById(R.id.switch_text_search_countrylist), countryListInput, countryList);
     }
 
     private void execTextSearch() {
@@ -148,6 +164,11 @@ public class TextSearchActivity extends AppCompatActivity {
         String countryCode = countryCodeInput.getText().toString();
         if (!TextUtils.isEmpty(countryCode)) {
             request.setCountryCode(countryCode);
+        }
+
+        List<String> countryList = getCountryList();
+        if (countryList.size() > 0) {
+            request.setCountries(countryList);
         }
 
         String language = languageInput.getText().toString();
@@ -221,6 +242,14 @@ public class TextSearchActivity extends AppCompatActivity {
         };
         // Call the place search API.
         searchService.textSearch(request, resultListener);
+    }
+
+    private List<String> getCountryList() {
+        if (((Switch) findViewById(R.id.switch_text_search_countrylist)).isChecked()) {
+            return countryListSpinner.getSelectedCountryList();
+        } else {
+            return new ArrayList<>();
+        }
     }
 
     @Override

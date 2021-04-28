@@ -117,6 +117,7 @@ public class SearchFragmentActivity extends AppCompatActivity {
             List<LocationType> poiTypes = (List<LocationType>) intent.getSerializableExtra("poiTypes");
             boolean children = intent.getBooleanExtra("children", false);
             boolean strictBounds = intent.getBooleanExtra("strictBounds", false);
+            List<String> countryList = (List<String>) intent.getSerializableExtra("countries");
 
             searchFilter = new SearchFilter();
 
@@ -128,6 +129,9 @@ public class SearchFragmentActivity extends AppCompatActivity {
             }
             if (!TextUtils.isEmpty(countryCode)) {
                 searchFilter.setCountryCode(countryCode);
+            }
+            if (null != countryList && countryList.size() > 0) {
+                searchFilter.setCountries(countryList);
             }
 
             Integer radiusValue;

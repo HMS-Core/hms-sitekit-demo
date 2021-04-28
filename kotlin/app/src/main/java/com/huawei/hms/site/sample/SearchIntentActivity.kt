@@ -43,6 +43,8 @@ class SearchIntentActivity : AppCompatActivity() {
     private var searchIntent: SearchIntent? = null
     private var locationTypeSpinner: CheckboxSpinner? = null
 
+    private var countryListSpinner: CheckboxCountriesSpinner? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_intent)
@@ -61,6 +63,18 @@ class SearchIntentActivity : AppCompatActivity() {
         poiTypesInput.isEnabled = false
 
         locationTypeSpinner = CheckboxSpinner(findViewById(R.id.switch_query_suggestion_poitype), poiTypesInput, poiTypes)
+
+        val countryList: MutableList<String> = ArrayList()
+        countryList.add("en")
+        countryList.add("fr")
+        countryList.add("cn")
+        countryList.add("de")
+        countryList.add("ko")
+
+        val countryListInput = findViewById<TextView>(R.id.search_fragment_country_list_input)
+        countryListInput.isEnabled = false
+
+        countryListSpinner = CheckboxCountriesSpinner(findViewById(R.id.switch_search_fragment_countrylist), countryListInput, countryList)
     }
 
     fun openSearchActivity(view: View?) {
@@ -84,6 +98,10 @@ class SearchIntentActivity : AppCompatActivity() {
         }
         if (countryCode.isNotEmpty()) {
             searchFilter.countryCode = countryCode
+        }
+        val countryList: List<String> = getCountryList()
+        if (countryList.isNotEmpty()) {
+            searchFilter.countries = countryList
         }
         if (radius.isNotEmpty()) {
             val radiusValue: Int? = parseInt(radius)
@@ -137,6 +155,10 @@ class SearchIntentActivity : AppCompatActivity() {
         }
         if (countryCode.isNotEmpty()) {
             intent.putExtra("countryCode", countryCode)
+        }
+        val countryList = getCountryList()
+        if (countryList.isNotEmpty()) {
+            intent.putExtra("countries", countryList as Serializable?)
         }
         if (radius.isNotEmpty()) {
             intent.putExtra("radius", radius)
@@ -205,4 +227,12 @@ class SearchIntentActivity : AppCompatActivity() {
         } else {
             null
         }
+
+    private fun getCountryList(): List<String> {
+        return if (findViewById<Switch>(R.id.switch_search_fragment_countrylist).isChecked) {
+            countryListSpinner!!.selectedCountryList
+        } else {
+            ArrayList()
+        }
+    }
 }

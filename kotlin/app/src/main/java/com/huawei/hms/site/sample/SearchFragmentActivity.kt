@@ -100,6 +100,12 @@ class SearchFragmentActivity : AppCompatActivity() {
             }
             val children: Boolean? = intent.getBooleanExtra("children", false)
             val strictBounds: Boolean? = intent.getBooleanExtra("strictBounds", false)
+
+            var countryList: List<String>? = null
+            if (null != intent.getSerializableExtra("countries")) {
+                countryList = intent.getSerializableExtra("countries") as List<String>
+            }
+
             searchFilter = SearchFilter()
             if (!language.isNullOrEmpty()) {
                 searchFilter.language = language
@@ -109,6 +115,9 @@ class SearchFragmentActivity : AppCompatActivity() {
             }
             if (!countryCode.isNullOrEmpty()) {
                 searchFilter.countryCode = countryCode
+            }
+            if (null != countryList) {
+                searchFilter.countries = countryList
             }
             if (!radius.isNullOrEmpty()) {
                 val radiusValue: Int? = parseInt(radius!!)

@@ -51,6 +51,8 @@ public class QuerySuggestionActivity extends AppCompatActivity implements View.O
 
     private CheckboxSpinner locationTypeSpinner;
 
+    private CheckboxCountriesSpinner countryListSpinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +75,19 @@ public class QuerySuggestionActivity extends AppCompatActivity implements View.O
 
         locationTypeSpinner =
             new CheckboxSpinner(findViewById(R.id.switch_query_suggestion_poitype), poiTypesInput, poiTypes);
+
+        List<String> countryList = new ArrayList<>();
+        countryList.add("en");
+        countryList.add("fr");
+        countryList.add("cn");
+        countryList.add("de");
+        countryList.add("ko");
+
+        TextView countryListInput = findViewById(R.id.query_suggestion_country_list_input);
+        countryListInput.setEnabled(false);
+
+        countryListSpinner =
+                new CheckboxCountriesSpinner(findViewById(R.id.switch_query_suggestion_countrylist), countryListInput, countryList);
     }
 
     // Create a search result listener.
@@ -159,6 +174,10 @@ public class QuerySuggestionActivity extends AppCompatActivity implements View.O
         if (!TextUtils.isEmpty(countryCode)) {
             request.setCountryCode(countryCode);
         }
+        List<String> countryList = getCountryList();
+        if (countryList.size() > 0) {
+            request.setCountries(countryList);
+        }
         Integer radiusValue;
         if ((radiusValue = Utils.parseInt(radius)) != null) {
             request.setRadius(radiusValue);
@@ -195,7 +214,15 @@ public class QuerySuggestionActivity extends AppCompatActivity implements View.O
         if (((Switch) findViewById(R.id.switch_query_suggestion_poitype)).isChecked()) {
             return locationTypeSpinner.getSelectedLocationTypes();
         } else {
-            return new ArrayList();
+            return new ArrayList<>();
+        }
+    }
+
+    private List<String> getCountryList() {
+        if (((Switch) findViewById(R.id.switch_query_suggestion_countrylist)).isChecked()) {
+            return countryListSpinner.getSelectedCountryList();
+        } else {
+            return new ArrayList<>();
         }
     }
 

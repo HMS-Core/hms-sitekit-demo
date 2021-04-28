@@ -49,6 +49,7 @@ class TextSearchActivity : AppCompatActivity() {
     private lateinit var pageIndexInput: EditText
     private lateinit var pageSizeInput: EditText
     private lateinit var resultTextView: TextView
+    private var countryListSpinner: CheckboxCountriesSpinner? = null
 
     // Declare a SearchService object.
     private var searchService: SearchService? = null
@@ -74,6 +75,18 @@ class TextSearchActivity : AppCompatActivity() {
         resultTextView = findViewById(R.id.response_text_search)
         findViewById<View>(R.id.button_text_search).setOnClickListener { execTextSearch() }
         poiTypeSpinner.isEnabled = false
+
+        val countryList: MutableList<String> = ArrayList()
+        countryList.add("en")
+        countryList.add("fr")
+        countryList.add("cn")
+        countryList.add("de")
+        countryList.add("ko")
+
+        val countryListInput = findViewById<TextView>(R.id.text_search_country_list_input)
+        countryListInput.isEnabled = false
+
+        countryListSpinner = CheckboxCountriesSpinner(findViewById(R.id.switch_text_search_countrylist), countryListInput, countryList)
     }
 
     private fun execTextSearch() {
@@ -116,6 +129,10 @@ class TextSearchActivity : AppCompatActivity() {
         val countryCode = countryCodeInput.text.toString()
         if (!TextUtils.isEmpty(countryCode)) {
             request.setCountryCode(countryCode)
+        }
+        val countryList: List<String> = getCountryList()
+        if (countryList.isNotEmpty()) {
+            request.countries = countryList
         }
         val language = languageInput.text.toString()
         if (!TextUtils.isEmpty(language)) {
@@ -183,6 +200,14 @@ class TextSearchActivity : AppCompatActivity() {
         }
         // Call the place search API.
         searchService?.textSearch(request, resultListener)
+    }
+
+    private fun getCountryList(): List<String> {
+        return if (findViewById<Switch>(R.id.switch_text_search_countrylist).isChecked) {
+            countryListSpinner!!.selectedCountryList
+        } else {
+            ArrayList()
+        }
     }
 
     override fun onDestroy() {
