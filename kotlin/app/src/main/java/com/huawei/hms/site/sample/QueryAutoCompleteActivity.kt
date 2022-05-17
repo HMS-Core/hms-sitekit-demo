@@ -100,13 +100,17 @@ class QueryAutoCompleteActivity : AppCompatActivity(), View.OnClickListener {
                             stringBuilder.append(String.format("[%s] Prediction,description = %s ,", "" + count++, mPrediction.getDescription()))
 
                             val matchedKeywords = mPrediction.getMatchedKeywords()
-                            for (matchedKeyword in matchedKeywords) {
-                                stringBuilder.append("matchedKeywords: $matchedKeyword")
+                            if (matchedKeywords != null) {
+                                for (matchedKeyword in matchedKeywords) {
+                                    stringBuilder.append("matchedKeywords: $matchedKeyword")
+                                }
                             }
 
                             val matchedWords = mPrediction.getMatchedWords()
-                            for (matchedWord in matchedWords) {
-                                stringBuilder.append(",matchedWords: $matchedWord")
+                            if (matchedWords != null) {
+                                for (matchedWord in matchedWords) {
+                                    stringBuilder.append(",matchedWords: $matchedWord")
+                                }
                             }
 
                             stringBuilder.append("\n")
