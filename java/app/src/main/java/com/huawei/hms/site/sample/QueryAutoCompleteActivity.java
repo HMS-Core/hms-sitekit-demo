@@ -113,13 +113,17 @@ public class QueryAutoCompleteActivity extends AppCompatActivity implements View
                             stringBuilder.append(String.format("[%s] Prediction,description = %s ,", "" + (count++), mPrediction.getDescription()));
 
                             Word[] matchedKeywords = mPrediction.getMatchedKeywords();
-                            for (Word matchedKeyword : matchedKeywords) {
-                                stringBuilder.append("matchedKeywords: " + matchedKeyword.toString());
+                            if (matchedKeywords != null) {
+                                for (Word matchedKeyword : matchedKeywords) {
+                                    stringBuilder.append("matchedKeywords: " + matchedKeyword.toString());
+                                }
                             }
 
                             Word[] matchedWords = mPrediction.getMatchedWords();
-                            for (Word matchedWord : matchedWords) {
-                                stringBuilder.append(",matchedWords: " + matchedWord.toString());
+                            if (matchedWords != null) {
+                                for (Word matchedWord : matchedWords) {
+                                    stringBuilder.append(",matchedWords: " + matchedWord.toString());
+                                }
                             }
 
                             stringBuilder.append("\n");
