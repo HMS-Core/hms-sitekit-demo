@@ -69,7 +69,7 @@ class CheckboxSpinner(usePOITypeSwitch: Switch, poiTypeTextView: TextView, poiTy
 
     }
 
-    private class LocationTypeItemArrayAdapter(context: Context?, placeFields: List<LocationTypeItem>?) : ArrayAdapter<LocationTypeItem?>(context, android.R.layout.simple_list_item_multiple_choice, placeFields), OnItemClickListener {
+    private class LocationTypeItemArrayAdapter(context: Context?, placeFields: List<LocationTypeItem>?) : ArrayAdapter<LocationTypeItem?>(context!!, android.R.layout.simple_list_item_multiple_choice, placeFields!!), OnItemClickListener {
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             val view = super.getView(position, convertView, parent)
             val locationTypeItem = getItem(position)
