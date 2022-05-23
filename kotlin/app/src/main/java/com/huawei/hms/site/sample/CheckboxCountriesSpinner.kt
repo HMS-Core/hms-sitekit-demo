@@ -81,7 +81,7 @@ class CheckboxCountriesSpinner(useCountryListSwitch: Switch, countryListTextView
 
     }
 
-    private class LocationTypeItemArrayAdapter(context: Context?, placeFields: List<CountryListItem>?) : ArrayAdapter<CountryListItem?>(context, android.R.layout.simple_list_item_multiple_choice, placeFields), OnItemClickListener {
+    private class LocationTypeItemArrayAdapter(context: Context?, placeFields: List<CountryListItem>?) : ArrayAdapter<CountryListItem?>(context!!, android.R.layout.simple_list_item_multiple_choice, placeFields!!), OnItemClickListener {
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             val view = super.getView(position, convertView, parent)
             val countryListItem = getItem(position)
