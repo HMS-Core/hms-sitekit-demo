@@ -41,7 +41,7 @@ In Android Studio, use the "Open an existing Android Studio project", and select
 
 You can use the "gradlew build" command to build the project directly.
 
-You should create an app in AppGallery Connect, and obtain the file of agconnect-services.json and add to the project. You should also generate a signing certificate fingerprint  and add the certificate file to the project, and add configuration to build.gradle. See the [Configuring App Information in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-sdk-config-agc-0000001050158579) guide to configure app in AppGallery Connect.
+You should create an app in AppGallery Connect, and obtain the file of agconnect-services.json and add to the project. You should also generate a signing certificate fingerprint  and add the certificate file to the project, and add configuration to build.gradle. See the [Configuring App Information in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-sdk-config-agc-0000001050158579) guide to configure app in AppGallery Connect. In addition, change the value of the apiKey variable ("your api key") of the getApiKey function in Utils.java to the value of apiKey obtained from agconnect-services.json.
 
 
 
