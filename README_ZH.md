@@ -41,7 +41,7 @@
 
 你可以使用gradlew build命令来直接编译项目。
 
-你应该在AppGallery Connect中创建一个应用，获取agconnect-services.json文件并将其加入到你的项目中。你还应生成一个签名证书指纹，将证书文件添加到你的项目中，并在build.gradle文件中添加配置。参见“[配置AppGallery Connect](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-sdk-config-agc-0000001050158579)”在AppGallery Connect配置应用信息。同时，需要把Utils.java中getApiKey函数的apiKey变量的值（"your api key"），更改为从agconnect-services.json中获取到的apiKey的值。
+你应该在AppGallery Connect中创建一个应用，获取agconnect-services.json文件并将其加入到你的项目中。你还应生成一个签名证书指纹，将证书文件添加到你的项目中，并在build.gradle文件中添加配置。参见“[配置AppGallery Connect](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-sdk-config-agc-0000001050158579)”在AppGallery Connect配置应用信息。同时，需要把Utils.java或者Utils.kt中getApiKey函数的apiKey变量的值（"your api key"），更改为从agconnect-services.json中获取到的apiKey的值。
 
 
 
